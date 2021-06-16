@@ -60,6 +60,15 @@ def get_player_names():
     print("\nMatch will be played by'" + player1_name+"'\n")
     return player1_name
 
+def got_snake_bite(old_value, current_value, player_name):
+    print("\n" + random.choice(snake_bite).upper() + " ~~~~~~~~>")
+    print("\n" + player_name + " got a snake bite. Down from " + str(old_value) + " to " + str(current_value))
+
+
+def got_ladder_jump(old_value, current_value, player_name):
+    print("\n" + random.choice(ladder_jump).upper() + " ########")
+    print("\n" + player_name + " climbed the ladder from " + str(old_value) + " to " + str(current_value))
+
 def snake_ladder(player_name, current_value, dice_value,snakes):
     time.sleep(SLEEP_BETWEEN_ACTIONS)
     old_value = current_value
@@ -70,7 +79,19 @@ def snake_ladder(player_name, current_value, dice_value,snakes):
         return old_value
 
     print("\n" + player_name + " moved from " + str(old_value) + " to " + str(current_value))
-    
+    if current_value in snakes:
+        final_value = snakes.get(current_value)
+        got_snake_bite(current_value, final_value, player_name)
+
+    elif current_value in ladders:
+        final_value = ladders.get(current_value)
+        got_ladder_jump(current_value, final_value, player_name)
+
+    else:
+        final_value = current_value
+
+    return final_value
+
 
     
     
