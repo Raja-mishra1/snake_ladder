@@ -50,3 +50,22 @@ class Dice:
         dice_value = random.randrange(2, DICE_FACE+1,2)
         print("Its a " + str(dice_value))
         return dice_value
+    
+    
+def start():
+    player1_current_position = 0
+    print("Add snakes to the game")
+    no_of_snakes = int(input("Enter no_of_snakes to be added to the game"))
+    for i in range(no_of_snakes):
+        try:
+            start = input("Enter start position of snake: ")
+            end = input("Enter end position of snake: ")
+            snake = Snake()
+            snakes = snake.add_snake(start, end)
+            print(f"Added snake from {start} to {end}")
+        except Exception as e:
+            print(f"Error {e}")
+        
+
+if __name__ == "__main__":
+    start()
