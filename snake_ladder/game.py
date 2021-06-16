@@ -51,8 +51,21 @@ class Dice:
         print("Its a " + str(dice_value))
         return dice_value
     
+def get_player_names():
+    player1_name = None
+    while not player1_name:
+        player1_name = input("Please enter a valid name for first player: ").strip()
+
+
+    print("\nMatch will be played by'" + player1_name+"'\n")
+    return player1_name
+
+    
     
 def start():
+    time.sleep(SLEEP_BETWEEN_ACTIONS)
+    player1_name = get_player_names()
+    time.sleep(SLEEP_BETWEEN_ACTIONS)
     player1_current_position = 0
     print("Add snakes to the game")
     no_of_snakes = int(input("Enter no_of_snakes to be added to the game"))
