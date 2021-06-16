@@ -78,6 +78,18 @@ def start():
             print(f"Added snake from {start} to {end}")
         except Exception as e:
             print(f"Error {e}")
+            
+    dice_type = input("Enter 1 for Crooked dice: ")
+    
+    for i in range(10):
+        time.sleep(SLEEP_BETWEEN_ACTIONS)
+        dice = Dice()
+        input_1 = input("\n" + player1_name + ": " + random.choice(player_turn_text) + " Hit the enter to roll dice: ")
+        print("\nRolling dice...")
+        if dice_type == "1":
+            dice_value = Dice.get_crooked_dice_value()
+        else:
+            dice_value = Dice.get_dice_value()
         
 
 if __name__ == "__main__":
