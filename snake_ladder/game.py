@@ -60,6 +60,18 @@ def get_player_names():
     print("\nMatch will be played by'" + player1_name+"'\n")
     return player1_name
 
+def snake_ladder(player_name, current_value, dice_value,snakes):
+    time.sleep(SLEEP_BETWEEN_ACTIONS)
+    old_value = current_value
+    current_value = current_value + dice_value
+
+    if current_value > MAX_VAL:
+        print("You need " + str(MAX_VAL - old_value) + " to win this game. Keep trying.")
+        return old_value
+
+    print("\n" + player_name + " moved from " + str(old_value) + " to " + str(current_value))
+    
+
     
     
 def start():
@@ -90,6 +102,8 @@ def start():
             dice_value = Dice.get_crooked_dice_value()
         else:
             dice_value = Dice.get_dice_value()
+        time.sleep(SLEEP_BETWEEN_ACTIONS)
+        print(player1_name + " moving....")
         
 
 if __name__ == "__main__":
